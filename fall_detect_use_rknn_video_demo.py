@@ -1,4 +1,4 @@
-# 改为多线程
+# PC上多线程版本
 from __future__ import division
 import os
 import time
@@ -25,7 +25,7 @@ NMS_THRESH = 0.4
 #
 # confidence = 0.6
 # nms_thesh = 0.4
-FALL_TH = 0.2  # 顶格相当于全局变量
+FALL_TH = 0.2  #
 
 
 def get_bboxes(image, boxes, scores, classes):
@@ -129,7 +129,7 @@ def run_detect(input_img, yolo_rknn, res50_rknn):
             outputs = res50_rknn.inference(inputs=[person_bbox])
             print("outputs", outputs)
 
-            fall_score = get_cls_score(outputs)  # top1 score 这里需要去函数打印看一下，改对   ## ToDo
+            fall_score = get_cls_score(outputs)  # top1 score    ## ToDo
             print("fall_score", fall_score)
             if fall_score > FALL_TH:
                 is_fall = True
